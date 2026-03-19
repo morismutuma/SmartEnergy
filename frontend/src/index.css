@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-900 text-white font-sans;
+    -webkit-font-smoothing: antialiased;
+  }
+  * { @apply box-border; }
+}
+
+@layer components {
+  .card {
+    @apply bg-dark-700 border border-dark-400 rounded-2xl;
+  }
+  .card-glow {
+    @apply bg-dark-700 border border-primary-800/50 rounded-2xl shadow-lg;
+    box-shadow: 0 0 30px rgba(24, 184, 101, 0.06);
+  }
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-400 text-white font-medium rounded-xl px-4 py-2.5 transition-all duration-200 active:scale-95;
+  }
+  .btn-ghost {
+    @apply bg-dark-600 hover:bg-dark-500 text-gray-300 font-medium rounded-xl px-4 py-2.5 transition-all duration-200 active:scale-95 border border-dark-400;
+  }
+  .input-field {
+    @apply bg-dark-600 border border-dark-400 rounded-xl px-4 py-3 text-white placeholder-gray-500 w-full focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600/30 transition-all duration-200;
+  }
+  .label {
+    @apply block text-sm font-medium text-gray-400 mb-1.5;
+  }
+  .nav-item {
+    @apply flex flex-col items-center gap-1 py-2 px-3 rounded-xl transition-all duration-200 text-xs font-medium;
+  }
+  .nav-item.active {
+    @apply text-primary-400;
+  }
+  .nav-item:not(.active) {
+    @apply text-gray-500 hover:text-gray-300;
+  }
+  .badge-low    { @apply bg-primary-900/60 text-primary-300 border border-primary-700/50; }
+  .badge-medium { @apply bg-yellow-900/60 text-yellow-300 border border-yellow-700/50; }
+  .badge-high   { @apply bg-red-900/60 text-red-300 border border-red-700/50; }
+
+  .progress-low    { @apply bg-primary-500; }
+  .progress-medium { @apply bg-yellow-500; }
+  .progress-high   { @apply bg-red-500; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply bg-dark-400 rounded-full; }
+
+/* Circular gauge animation */
+@keyframes drawCircle {
+  from { stroke-dashoffset: 339.3; }
+}
+.gauge-arc { animation: drawCircle 1.2s ease-out forwards; }
